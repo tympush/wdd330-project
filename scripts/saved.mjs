@@ -51,18 +51,18 @@ export function displaySavedInspirations() {
         authorDiv.style.alignItems = "center";
         authorDiv.style.marginTop = "8px";
 
+        const authorText = document.createElement("span");
+        authorText.textContent = `Made by: ${inspiration.author || "Unknown"}`;
+        authorText.style.marginRight = "8px";
+        authorDiv.appendChild(authorText);
+
         const img = document.createElement("img");
         img.src = inspiration.picture || "";
         img.alt = "Author";
         img.style.width = "32px";
         img.style.height = "32px";
         img.style.borderRadius = "50%";
-        img.style.marginRight = "8px";
         authorDiv.appendChild(img);
-
-        const authorText = document.createElement("span");
-        authorText.textContent = `- made by: ${inspiration.author || "Unknown"}`;
-        authorDiv.appendChild(authorText);
 
         inspirationDiv.appendChild(authorDiv);
 
