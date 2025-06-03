@@ -1,13 +1,21 @@
 import { getInspirations, removeInspiration } from "./data.mjs";
 import { renderColorBar, renderEmojiBar } from "./dynamic-elements.mjs";
 
-export function displaySavedInspirations() {
+export function displaySavedInspirations(searchTerm = "") {
     const container = document.querySelector(".savedInspirations");
     if (!container) return;
 
     container.innerHTML = "";
 
-    const inspirations = getInspirations();
+    let inspirations = getInspirations();
+
+    // filter by search term if provided
+    if (searchTerm) {
+        const lowerSearch = searchTerm.toLowerCase();
+        inspirations = inspirations.filter(inspiration =>
+            inspiration.name && inspiration.name.toLowerCase().includes(lowerSearch)
+        );
+    }
 
     inspirations.forEach(inspiration => {
         const inspirationDiv = document.createElement("div");
@@ -24,7 +32,7 @@ export function displaySavedInspirations() {
             const confirmDelete = confirm(`Are you sure you want to delete "${inspiration.name}"?`);
             if (confirmDelete) {
                 removeInspiration(inspiration.name);
-                displaySavedInspirations();
+                displaySavedInspirations(searchTerm);
             }
         });
         inspirationDiv.appendChild(deleteBtn);
@@ -73,4 +81,15 @@ export function displaySavedInspirations() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", displaySavedInspirations);
+document.addEventListener("DOMContentLoaded", () => {
+    displaySavedInspirations();
+
+    // search functionality
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        // live search as you type
+        searchInput.addEventListener("input", () => {
+            displaySavedInspirations(searchInput.value.trim());
+        });
+    }
+});
