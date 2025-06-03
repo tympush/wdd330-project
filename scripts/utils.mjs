@@ -20,4 +20,18 @@ export async function loadHeaderFooter() {
 
     renderWithTemplate(headerTemplate, headerElement);
     renderWithTemplate(footerTemplate, footerElement);
+
+    return Promise.resolve();
+}
+
+export function setActiveNavLink() {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const currentPath = window.location.pathname.toLowerCase();
+    navLinks.forEach(link => {
+        if (link.getAttribute('href').toLowerCase() === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }

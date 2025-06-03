@@ -1,2 +1,5 @@
-import { loadHeaderFooter } from "./utils.mjs";
-loadHeaderFooter()
+import { loadHeaderFooter, setActiveNavLink } from "./utils.mjs";
+
+loadHeaderFooter().then(() => {
+    setActiveNavLink();
+});
