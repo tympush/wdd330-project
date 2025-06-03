@@ -1,14 +1,9 @@
-import { getRandomColorPalette, getRandomEmojis } from "./api.mjs";
-
-
-
-export async function renderColorBar(colorBar) {
+export function renderColorBar(colorBar, palette) {
     if (!colorBar) return;
 
     colorBar.innerHTML = "";
 
     try {
-        const palette = await getRandomColorPalette();
         palette.forEach(color => {
             const colorDiv = document.createElement('div');
             colorDiv.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
@@ -25,15 +20,12 @@ export async function renderColorBar(colorBar) {
     }
 }
 
-
-
-export async function renderEmojiBar(emojiBar) {
+export function renderEmojiBar(emojiBar, emojis) {
     if (!emojiBar) return;
 
     emojiBar.innerHTML = "";
 
     try {
-        const emojis = await getRandomEmojis(5);
         emojis.forEach(emojiObj => {
             const span = document.createElement('span');
             span.innerHTML = emojiObj.htmlCode[0];
