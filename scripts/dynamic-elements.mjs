@@ -2,8 +2,7 @@ import { getRandomColorPalette, getRandomEmojis } from "./api.mjs";
 
 
 
-export async function renderColorBar() {
-    const colorBar = document.querySelector('.colorBar');
+export async function renderColorBar(colorBar) {
     if (!colorBar) return;
 
     colorBar.innerHTML = "";
@@ -28,8 +27,7 @@ export async function renderColorBar() {
 
 
 
-export async function renderEmojiBar() {
-    const emojiBar = document.querySelector('.emojiBar');
+export async function renderEmojiBar(emojiBar) {
     if (!emojiBar) return;
 
     emojiBar.innerHTML = "";
