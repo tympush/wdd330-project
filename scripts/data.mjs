@@ -8,3 +8,7 @@ export function saveInspiration(name, colors, emojis) {
     // save back to localStorage
     localStorage.setItem("inspirations", JSON.stringify(inspirations));
 }
+
+export function getInspirations() {
+    return JSON.parse(localStorage.getItem("inspirations")) || [];
+}
