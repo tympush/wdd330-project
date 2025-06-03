@@ -1,8 +1,8 @@
-import { getInspirations } from "./data.mjs";
+import { getInspirations, removeInspiration } from "./data.mjs";
 import { renderColorBar, renderEmojiBar } from "./dynamic-elements.mjs";
 
 export function displaySavedInspirations() {
-    const container = document.querySelector('.savedInspirations');
+    const container = document.querySelector(".savedInspirations");
     if (!container) return;
 
     container.innerHTML = "";
@@ -10,28 +10,64 @@ export function displaySavedInspirations() {
     const inspirations = getInspirations();
 
     inspirations.forEach(inspiration => {
-        const inspirationDiv = document.createElement('div');
-        inspirationDiv.classList.add('inspiration');
+        const inspirationDiv = document.createElement("div");
+        inspirationDiv.classList.add("inspiration");
+
+        // X (delete) button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "✖";
+        deleteBtn.className = "deleteInspirationBtn";
+        deleteBtn.title = "Delete this inspiration";
+        deleteBtn.style.float = "right";
+        deleteBtn.style.marginLeft = "8px";
+        deleteBtn.addEventListener("click", () => {
+            const confirmDelete = confirm(`Are you sure you want to delete "${inspiration.name}"?`);
+            if (confirmDelete) {
+                removeInspiration(inspiration.name);
+                displaySavedInspirations();
+            }
+        });
+        inspirationDiv.appendChild(deleteBtn);
 
         // Title
-        const title = document.createElement('h3');
+        const title = document.createElement("h3");
         title.textContent = inspiration.name;
         inspirationDiv.appendChild(title);
 
         // Color bar
-        const colorBar = document.createElement('div');
+        const colorBar = document.createElement("div");
         colorBar.className = "colorBar";
         inspirationDiv.appendChild(colorBar);
 
         // Emoji bar
-        const emojiBar = document.createElement('div');
+        const emojiBar = document.createElement("div");
         emojiBar.className = "emojiBar";
         inspirationDiv.appendChild(emojiBar);
 
-        // Append to container first, then render
+        // Author and Picture section
+        const authorDiv = document.createElement("div");
+        authorDiv.className = "inspiration-author";
+        authorDiv.style.display = "flex";
+        authorDiv.style.alignItems = "center";
+        authorDiv.style.marginTop = "8px";
+
+        const img = document.createElement("img");
+        img.src = inspiration.picture || "";
+        img.alt = "Author";
+        img.style.width = "32px";
+        img.style.height = "32px";
+        img.style.borderRadius = "50%";
+        img.style.marginRight = "8px";
+        authorDiv.appendChild(img);
+
+        const authorText = document.createElement("span");
+        authorText.textContent = `- made by: ${inspiration.author || "Unknown"}`;
+        authorDiv.appendChild(authorText);
+
+        inspirationDiv.appendChild(authorDiv);
+
         container.appendChild(inspirationDiv);
 
-        // Render colors and emojis
         renderColorBar(colorBar, inspiration.colors);
         renderEmojiBar(emojiBar, inspiration.emojis);
     });

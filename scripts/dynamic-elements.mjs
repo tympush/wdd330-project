@@ -5,7 +5,7 @@ export function renderColorBar(colorBar, palette) {
 
     try {
         palette.forEach(color => {
-            const colorDiv = document.createElement('div');
+            const colorDiv = document.createElement("div");
             colorDiv.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
             colorDiv.style.width = "50px";
             colorDiv.style.height = "50px";
@@ -27,7 +27,7 @@ export function renderEmojiBar(emojiBar, emojis) {
 
     try {
         emojis.forEach(emojiObj => {
-            const span = document.createElement('span');
+            const span = document.createElement("span");
             span.innerHTML = emojiObj.htmlCode[0];
             span.style.fontSize = "2.5rem";
             span.style.marginRight = "12px";

@@ -25,13 +25,13 @@ export async function loadHeaderFooter() {
 }
 
 export function setActiveNavLink() {
-    const navLinks = document.querySelectorAll('nav ul li a');
+    const navLinks = document.querySelectorAll("nav ul li a");
     const currentPath = window.location.pathname.toLowerCase();
     navLinks.forEach(link => {
-        if (link.getAttribute('href').toLowerCase() === currentPath) {
-            link.classList.add('active');
+        if (link.getAttribute("href").toLowerCase() === currentPath) {
+            link.classList.add("active");
         } else {
-            link.classList.remove('active');
+            link.classList.remove("active");
         }
     });
 }
