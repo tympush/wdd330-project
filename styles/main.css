@@ -1,7 +1,8 @@
-header {
+header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #aaa /*temporary*/
 }
 
 header div{
@@ -14,7 +15,7 @@ header div img{
     height: auto;
 }
 
-nav ul {
+nav ul{
     display: flex;
     gap: 32px;
     list-style: none;
@@ -22,7 +23,7 @@ nav ul {
     padding: 0;
 }
 
-nav ul li a {
+nav ul li a{
     font-size: 1.3rem;
     text-decoration: none;
     color: inherit;
@@ -30,18 +31,24 @@ nav ul li a {
     transition: color 0.2s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover{
     color: #0077cc;
 }
 
-nav ul li a.active {
+nav ul li a.active{
     text-decoration: underline;
     text-underline-offset: 6px;
 }
 
 
 
+footer{
+    display: flex;
+    background-color: #aaa /*temporary*/
+}
+
 footer img{
+    margin-left: auto;
     width: 150px;
     height: auto;
 }
