@@ -26,9 +26,10 @@ export async function loadHeaderFooter() {
 
 export function setActiveNavLink() {
     const navLinks = document.querySelectorAll("nav ul li a");
-    const currentPath = window.location.pathname.toLowerCase();
+    const currentFile = window.location.pathname.split("/").pop().toLowerCase();
     navLinks.forEach(link => {
-        if (link.getAttribute("href").toLowerCase() === currentPath) {
+        const linkFile = link.getAttribute("href").split("/").pop().toLowerCase();
+        if (linkFile === currentFile) {
             link.classList.add("active");
         } else {
             link.classList.remove("active");
