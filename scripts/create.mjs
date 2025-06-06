@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             name: span.title
         }));
 
-        saveInspiration(saveName, colors, emojis, "Me", "/public/images/profile-me.png");
+        saveInspiration(saveName, colors, emojis, "Me", "public/images/profile-me.png");
         alert(`Inspiration "${saveName}" saved!`);
     });
 });
