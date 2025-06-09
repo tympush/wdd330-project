@@ -8,7 +8,9 @@ export async function getRandomColorPalette(count = 5) {
     const seed = randomHex();
 
     // MODES: (monochrome, analogic, complement, triad, quad)
-    const url = `https://www.thecolorapi.com/scheme?hex=${seed}&mode=analogic&count=${count}`;
+    const modes = ["monochrome", "analogic", "complement", "triad", "quad"];
+    const mode = modes[Math.floor(Math.random() * modes.length)];
+    const url = `https://www.thecolorapi.com/scheme?hex=${seed}&mode=${mode}&count=${count}`;
 
     const response = await fetch(url);
     if (!response.ok) {
