@@ -1,8 +1,30 @@
+:root {
+    --headerColor: #aaa;
+    --footerColor: #aaa;
+    --accent1: #ff0000;
+    --accent2: #00ff00;
+    --accent3: #0000ff;
+}
+
+header {
+    background-color: var(--headerColor);
+}
+
+footer {
+    background-color: var(--footerColor);
+}
+
+body {
+    background: var(--primaryBg);
+    color: var(--primaryText);
+}
+
+
+
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #aaa /*temporary*/
 }
 
 header div{
@@ -44,7 +66,6 @@ nav ul li a.active{
 
 footer{
     display: flex;
-    background-color: #aaa /*temporary*/
 }
 
 footer img{
