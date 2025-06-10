@@ -1,4 +1,5 @@
 import { renderColorBar, renderEmojiBar } from "./dynamic-elements.mjs";
+import { saveInspiration } from "./data.mjs";
 
 async function displayFeaturedInspirations() {
     const container = document.querySelector(".featuredInspirations");
@@ -7,7 +8,6 @@ async function displayFeaturedInspirations() {
     container.innerHTML = "";
 
     // featured themes are saved in the featured.json file.
-    // it has pre-made example users. managing real accounts is beyond the scope of this project.
     const response = await fetch("public/data/featured.json");
     if (!response.ok) {
         container.textContent = "Failed to load featured inspirations.";
@@ -44,6 +44,37 @@ async function displayFeaturedInspirations() {
         const emojiBar = document.createElement("div");
         emojiBar.className = "emojiBar";
         inspirationDiv.appendChild(emojiBar);
+
+        // Try button
+        const tryBtn = document.createElement("button");
+        tryBtn.textContent = "Try";
+        tryBtn.style.margin = "12px 8px 0 0";
+        tryBtn.addEventListener("click", () => {
+            if (inspiration.colors && inspiration.colors.length >= 3) {
+                document.documentElement.style.setProperty('--headerColor', `rgb(${inspiration.colors[0].join(",")})`);
+                document.documentElement.style.setProperty('--footerColor', `rgb(${inspiration.colors[1].join(",")})`);
+                document.documentElement.style.setProperty('--accent1', `rgb(${inspiration.colors[2].join(",")})`);
+                if (inspiration.colors[3]) document.documentElement.style.setProperty('--accent2', `rgb(${inspiration.colors[3].join(",")})`);
+                if (inspiration.colors[4]) document.documentElement.style.setProperty('--accent3', `rgb(${inspiration.colors[4].join(",")})`);
+            }
+        });
+        inspirationDiv.appendChild(tryBtn);
+
+        // Save button
+        const saveBtn = document.createElement("button");
+        saveBtn.textContent = "Save";
+        saveBtn.style.margin = "12px 0 0 0";
+        saveBtn.addEventListener("click", () => {
+            saveInspiration(
+                inspiration.name,
+                inspiration.colors,
+                inspiration.emojis,
+                inspiration.author,
+                inspiration.picture
+            );
+            alert(`Inspiration "${inspiration.name}" saved!`);
+        });
+        inspirationDiv.appendChild(saveBtn);
 
         // Author and Picture section
         const authorDiv = document.createElement("div");
