@@ -26,7 +26,13 @@ export async function loadHeaderFooter() {
 
 export function setActiveNavLink() {
     const navLinks = document.querySelectorAll("nav ul li a");
-    const currentFile = window.location.pathname.split("/").pop().toLowerCase();
+    let currentFile = window.location.pathname.split("/").pop().toLowerCase();
+
+    //If the path is empty ("/" or "/wdd330-project/"), treat as "index.html"
+    if (currentFile === "" || currentFile === "wdd330-project") {
+        currentFile = "index.html";
+    }
+
     navLinks.forEach(link => {
         const linkFile = link.getAttribute("href").split("/").pop().toLowerCase();
         if (linkFile === currentFile) {
