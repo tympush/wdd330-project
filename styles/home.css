@@ -4,7 +4,7 @@ main {
 }
 
 #middleDiv{
-    padding: 0px 30px 0px 30px;
+    padding: 0px 60px 0px 60px;
 }
 
 
@@ -21,16 +21,29 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: emojiScroll 6s linear infinite;
+    animation: emojiScrollUp 6s linear infinite;
     --scroll-distance: -350px; /* fallback */
 }
 
-@keyframes emojiScroll {
+.scroll-down .emojiScrollWrapper {
+    animation-name: emojiScrollDown;
+}
+
+@keyframes emojiScrollUp {
     0% {
         transform: translateY(0);
     }
     100% {
         transform: translateY(var(--scroll-distance));
+    }
+}
+
+@keyframes emojiScrollDown {
+    0% {
+        transform: translateY(var(--scroll-distance));
+    }
+    100% {
+        transform: translateY(0);
     }
 }
 

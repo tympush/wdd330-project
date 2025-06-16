@@ -70,8 +70,25 @@ async function showRandomColorSchemes() {
 
 async function showEmojiShowcases() {
     const emojiShowcases = document.querySelectorAll('.emojiShowcase');
-    const emojis = await getRandomEmojis(10);
-    emojiShowcases.forEach(container => renderEmojiShowcase(container, emojis));
+    for (let i = 0; i < emojiShowcases.length; i++) {
+        const container = emojiShowcases[i];
+        const emojis = await getRandomEmojis(10);
+        renderEmojiShowcase(container, emojis);
+
+        //remove any previous scroll direction classes
+        container.classList.remove('scroll-up', 'scroll-down');
+        //assign scroll direction
+        if (i === 0) {
+            container.classList.add('scroll-up');
+        } else {
+            container.classList.add('scroll-down');
+        }
+        //also update the wrapper's animation name
+        const wrapper = container.querySelector('.emojiScrollWrapper');
+        if (wrapper) {
+            wrapper.style.animationName = (i === 0) ? 'emojiScrollUp' : 'emojiScrollDown';
+        }
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
