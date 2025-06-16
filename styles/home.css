@@ -1,4 +1,91 @@
-main{
+main {
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 120px 1fr 120px;
+}
+
+#middleDiv{
+    padding: 0px 30px 0px 30px;
+}
+
+.emojiShowcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2, p{
+    text-align: center;
+}
+
+button {
+    color: #fff;
+    background-color: var(--accent1);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 20px;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-left: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+button:hover {
+    background-color: var(--accent2);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.randomColorSchemes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 520px;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.colorScheme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.colorSchemeBox {
+    display: flex;
+    align-items: center;
+    background: #111;
+    border: 2px solid #222;
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.colorBar {
+    display: flex;
+    gap: 8px;
+}
+
+#makeButton {
+    display: block;
+    margin: 32px auto 0 auto;
+    padding: 18px 40px;
+    font-size: 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+#makeButton a {
+    color: #fff;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    display: block;
 }

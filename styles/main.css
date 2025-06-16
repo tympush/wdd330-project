@@ -3,12 +3,33 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Cinzel Decorative', cursive;
     margin: 0;
+    color: white;
 }
 
-p, li, a, div, button {
+h2{
+    font-size: 32px;
+}
+
+footer p{
+    font-size: 20px;
+}
+
+p, li, a, button {
     font-family: 'Lexend', sans-serif;
     font-weight: 400;
+    font-size: 18px;
+    color: white;
 }
+
+h1, nav ul li a, button, footer{
+    text-shadow:
+        -1px -1px 0 #222222,  
+        1px -1px 0 #222222,
+        -1px  1px 0 #222222,
+        1px  1px 0 #222222;
+}
+
+
 
 :root {
     --headerColor: #aaa;
@@ -26,9 +47,11 @@ footer {
     background-color: var(--footerColor);
 }
 
-body {
-    background: var(--primaryBg);
-    color: var(--primaryText);
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #040404;
 }
 
 
@@ -58,7 +81,7 @@ nav ul{
 }
 
 nav ul li a{
-    font-size: 1.3rem;
+    font-size: 24px;
     text-decoration: none;
     color: inherit;
     padding: 8px 16px;
@@ -66,12 +89,19 @@ nav ul li a{
 }
 
 nav ul li a:hover{
-    color: #0077cc;
+    color: var(--accent3);
 }
 
 nav ul li a.active{
     text-decoration: underline;
     text-underline-offset: 6px;
+}
+
+
+
+main{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 
