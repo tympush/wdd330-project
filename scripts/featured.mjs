@@ -16,15 +16,12 @@ async function displayFeaturedInspirations() {
     const allInspirations = await response.json();
 
     // 5 random inspirations (no repeats)
-    const inspirations = [];
-    const usedIndexes = new Set();
-    while (inspirations.length < 5 && usedIndexes.size < allInspirations.length) {
+    const inspirationsSet = new Set();
+    while (inspirationsSet.size < 5 && inspirationsSet.size < allInspirations.length) {
         const idx = Math.floor(Math.random() * allInspirations.length);
-        if (!usedIndexes.has(idx)) {
-            inspirations.push(allInspirations[idx]);
-            usedIndexes.add(idx);
-        }
+        inspirationsSet.add(allInspirations[idx]);
     }
+    const inspirations = Array.from(inspirationsSet);
 
     inspirations.forEach(inspiration => {
         const inspirationDiv = document.createElement("div");
