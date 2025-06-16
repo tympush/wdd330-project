@@ -7,8 +7,8 @@ export function renderColorBar(colorBar, palette) {
         palette.forEach(color => {
             const colorDiv = document.createElement("div");
             colorDiv.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-            colorDiv.style.width = "50px";
-            colorDiv.style.height = "50px";
+            colorDiv.style.width = "80px";
+            colorDiv.style.height = "80px";
             colorDiv.style.display = "inline-block";
             colorDiv.style.marginRight = "8px";
             colorDiv.style.borderRadius = "8px";
