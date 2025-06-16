@@ -35,8 +35,6 @@ async function showRandomColorSchemes() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", showRandomColorSchemes);
-
 async function showEmojiShowcases() {
     const emojiShowcases = document.querySelectorAll('.emojiShowcase');
     const emojis = await getRandomEmojis(10);
