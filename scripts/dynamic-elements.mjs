@@ -7,11 +7,6 @@ export function renderColorBar(colorBar, palette) {
         palette.forEach(color => {
             const colorDiv = document.createElement("div");
             colorDiv.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-            colorDiv.style.width = "80px";
-            colorDiv.style.height = "80px";
-            colorDiv.style.display = "inline-block";
-            colorDiv.style.marginRight = "8px";
-            colorDiv.style.borderRadius = "8px";
             colorDiv.title = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
             colorBar.appendChild(colorDiv);
         });
@@ -29,8 +24,6 @@ export function renderEmojiBar(emojiBar, emojis) {
         emojis.forEach(emojiObj => {
             const span = document.createElement("span");
             span.innerHTML = emojiObj.htmlCode[0];
-            span.style.fontSize = "2.5rem";
-            span.style.marginRight = "12px";
             span.title = emojiObj.name;
             emojiBar.appendChild(span);
         });
@@ -52,9 +45,6 @@ export function renderEmojiShowcase(container, emojis) {
         emojis.forEach(emojiObj => {
             const span = document.createElement("span");
             span.innerHTML = emojiObj.htmlCode[0];
-            span.style.fontSize = "2.5rem";
-            span.style.display = "block";
-            span.style.margin = "8px 0";
             span.title = emojiObj.name;
             wrapper.appendChild(span);
         });

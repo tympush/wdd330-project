@@ -54,19 +54,19 @@ main {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 120px;
+    height: 250px;
     z-index: 2;
     pointer-events: none;
 }
 
 .emojiShowcase::before {
     top: 0;
-    background: linear-gradient(to bottom, #040404 0%, rgba(4,4,4,0.85) 40%, rgba(4,4,4,0.5) 70%, transparent 100%);
+    background: linear-gradient(to bottom, #080808 0%, transparent 100%);
 }
 
 .emojiShowcase::after {
     bottom: 0;
-    background: linear-gradient(to top, #040404 0%, rgba(4,4,4,0.85) 40%, rgba(4,4,4,0.5) 70%, transparent 100%);
+    background: linear-gradient(to top, #080808 0%, transparent 100%);
 }
 
 
@@ -87,7 +87,6 @@ button {
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
     margin-left: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 button:hover {
@@ -116,8 +115,8 @@ button:hover {
 .colorSchemeBox {
     display: flex;
     align-items: center;
-    background: #111;
-    border: 2px solid #222;
+    background: #161616;
+    border: 2px solid #222222;
     border-radius: 12px;
     padding: 12px 18px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
