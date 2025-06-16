@@ -124,6 +124,7 @@ button:hover {
 
 .colorSchemeBox.active-scheme {
     border-color: var(--accent3) !important;
+    box-shadow: 0 0 8px 2px var(--accent1), 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .colorBar {
