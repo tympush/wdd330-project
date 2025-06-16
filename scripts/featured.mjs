@@ -25,25 +25,46 @@ function createInspirationElement(inspiration) {
     const inspirationDiv = document.createElement("div");
     inspirationDiv.classList.add("inspiration");
 
+    // Content box
+    const box = document.createElement("div");
+    box.className = "inspirationBox";
+
     // Title
     const title = document.createElement("h3");
     title.textContent = inspiration.name;
-    inspirationDiv.appendChild(title);
+    box.appendChild(title);
 
     // Color bar
     const colorBar = document.createElement("div");
     colorBar.className = "colorBar";
-    inspirationDiv.appendChild(colorBar);
+    box.appendChild(colorBar);
 
     // Emoji bar
     const emojiBar = document.createElement("div");
     emojiBar.className = "emojiBar";
-    inspirationDiv.appendChild(emojiBar);
+    box.appendChild(emojiBar);
+
+    // Author and Picture section
+    const authorDiv = document.createElement("div");
+    authorDiv.className = "inspiration-author";
+    const authorText = document.createElement("span");
+    authorText.textContent = `Made by: ${inspiration.author || "Unknown"}`;
+    authorDiv.appendChild(authorText);
+    const img = document.createElement("img");
+    img.src = inspiration.picture || "";
+    img.alt = "Author";
+    authorDiv.appendChild(img);
+    box.appendChild(authorDiv);
+
+    inspirationDiv.appendChild(box);
+
+    // Button group
+    const buttonGroup = document.createElement("div");
+    buttonGroup.className = "button-group";
 
     // Try button
     const tryBtn = document.createElement("button");
     tryBtn.textContent = "Try";
-    tryBtn.style.margin = "12px 8px 0 0";
     tryBtn.addEventListener("click", () => {
         if (inspiration.colors && inspiration.colors.length >= 3) {
             document.documentElement.style.setProperty('--headerColor', `rgb(${inspiration.colors[0].join(",")})`);
@@ -52,13 +73,15 @@ function createInspirationElement(inspiration) {
             if (inspiration.colors[3]) document.documentElement.style.setProperty('--accent2', `rgb(${inspiration.colors[3].join(",")})`);
             if (inspiration.colors[4]) document.documentElement.style.setProperty('--accent3', `rgb(${inspiration.colors[4].join(",")})`);
         }
+        // Optionally, add logic to highlight the active box
+        document.querySelectorAll('.inspirationBox.active-scheme').forEach(el => el.classList.remove('active-scheme'));
+        box.classList.add('active-scheme');
     });
-    inspirationDiv.appendChild(tryBtn);
+    buttonGroup.appendChild(tryBtn);
 
     // Save button
     const saveBtn = document.createElement("button");
     saveBtn.textContent = "Save";
-    saveBtn.style.margin = "12px 0 0 0";
     saveBtn.addEventListener("click", () => {
         saveInspiration(
             inspiration.name,
@@ -69,29 +92,9 @@ function createInspirationElement(inspiration) {
         );
         alert(`Inspiration "${inspiration.name}" saved!`);
     });
-    inspirationDiv.appendChild(saveBtn);
+    buttonGroup.appendChild(saveBtn);
 
-    // Author and Picture section
-    const authorDiv = document.createElement("div");
-    authorDiv.className = "inspiration-author";
-    authorDiv.style.display = "flex";
-    authorDiv.style.alignItems = "center";
-    authorDiv.style.marginTop = "8px";
-
-    const authorText = document.createElement("span");
-    authorText.textContent = `Made by: ${inspiration.author || "Unknown"}`;
-    authorText.style.marginRight = "8px";
-    authorDiv.appendChild(authorText);
-
-    const img = document.createElement("img");
-    img.src = inspiration.picture || "";
-    img.alt = "Author";
-    img.style.width = "32px";
-    img.style.height = "32px";
-    img.style.borderRadius = "50%";
-    authorDiv.appendChild(img);
-
-    inspirationDiv.appendChild(authorDiv);
+    inspirationDiv.appendChild(buttonGroup);
 
     // Render color and emoji bars
     renderColorBar(colorBar, inspiration.colors);
@@ -111,10 +114,29 @@ async function displayFeaturedInspirations() {
         const allInspirations = await fetchFeaturedInspirations();
         const inspirations = getRandomInspirations(allInspirations, 5);
 
-        inspirations.forEach(inspiration => {
+        let firstBox = null;
+        let firstInspiration = null;
+
+        inspirations.forEach((inspiration, idx) => {
             const inspirationDiv = createInspirationElement(inspiration);
             container.appendChild(inspirationDiv);
+
+            //save the first inspiration's box and data
+            if (idx === 0) {
+                firstBox = inspirationDiv.querySelector('.inspirationBox');
+                firstInspiration = inspiration;
+            }
         });
+
+        //select and apply the first inspiration by default
+        if (firstBox && firstInspiration && firstInspiration.colors && firstInspiration.colors.length >= 3) {
+            firstBox.classList.add('active-scheme');
+            document.documentElement.style.setProperty('--headerColor', `rgb(${firstInspiration.colors[0].join(",")})`);
+            document.documentElement.style.setProperty('--footerColor', `rgb(${firstInspiration.colors[1].join(",")})`);
+            document.documentElement.style.setProperty('--accent1', `rgb(${firstInspiration.colors[2].join(",")})`);
+            if (firstInspiration.colors[3]) document.documentElement.style.setProperty('--accent2', `rgb(${firstInspiration.colors[3].join(",")})`);
+            if (firstInspiration.colors[4]) document.documentElement.style.setProperty('--accent3', `rgb(${firstInspiration.colors[4].join(",")})`);
+        }
     } catch (error) {
         container.textContent = error.message;
     }

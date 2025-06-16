@@ -1,3 +1,119 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 30px 0px 30px;
+}
+
 h2, main p{
     text-align: center;
+}
+
+.featuredInspirations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 640px;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.inspiration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+/* box for content (name, colors, emojis, author) */
+.inspirationBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #161616;
+    border: 2px solid #222222;
+    border-radius: 12px;
+    padding: 18px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.inspirationBox.active-scheme {
+    border-color: var(--accent3) !important;
+    box-shadow: 0 0 8px 2px var(--accent1), 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.inspirationBox h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.colorBar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.colorBar div {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin-right: 8px;
+    border-radius: 8px;
+}
+.emojiBar {
+    margin-bottom: 12px;
+}
+.emojiBar span {
+    font-size: 2.5rem;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+.inspiration-author {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    color: #fff;
+}
+.inspiration-author img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.inspiration button {
+    color: #fff;
+    background-color: var(--accent1);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-left: 12px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: block;
+}
+
+.inspiration button:hover {
+    background-color: var(--accent2);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.inspiration .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 18px;
+    gap: 12px;
 }

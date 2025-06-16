@@ -14,7 +14,7 @@ footer p{
     font-size: 20px;
 }
 
-p, li, a, button {
+p, li, a, button, .inspiration-author {
     font-family: 'Lexend', sans-serif;
     font-weight: 400;
     font-size: 18px;
