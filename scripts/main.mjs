@@ -1,6 +1,6 @@
-import { loadHeaderFooter, setActiveNavLink, getDate } from "./utils.mjs";
+import { loadHeaderFooter, setActiveNavLink, setDateInFooter } from "./utils.mjs";
 
 loadHeaderFooter().then(() => {
     setActiveNavLink();
-    getDate();
+    setDateInFooter();
 });

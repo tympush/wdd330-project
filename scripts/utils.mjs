@@ -43,7 +43,7 @@ export function setActiveNavLink() {
     });
 }
 
-export function getDate(){
+export function setDateInFooter(){
     const year = document.querySelector("#currentyear");
     const today = new Date();
     year.innerHTML = `${today.getFullYear()}`;
