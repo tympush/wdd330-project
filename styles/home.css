@@ -65,6 +65,10 @@ button:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
+.colorSchemeBox.active-scheme {
+    border-color: var(--accent3) !important;
+}
+
 .colorBar {
     display: flex;
     gap: 8px;

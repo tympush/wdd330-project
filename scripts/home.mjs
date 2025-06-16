@@ -10,7 +10,9 @@ function applyPaletteToSite(palette) {
     document.documentElement.style.setProperty('--accent3', `rgb(${palette[4].join(",")})`);
 }
 
-function createColorSchemeElement(palette) {
+let currentActiveSchemeBox = null;
+
+function createColorSchemeElement(palette, onTry) {
     const schemeDiv = document.createElement('div');
     schemeDiv.className = "colorScheme";
 
@@ -29,7 +31,9 @@ function createColorSchemeElement(palette) {
     const tryBtn = document.createElement('button');
     tryBtn.textContent = "Try";
     tryBtn.className = "tryBtn";
-    tryBtn.addEventListener('click', () => applyPaletteToSite(palette));
+    tryBtn.addEventListener('click', () => {
+        onTry(schemeBox, palette);
+    });
     schemeDiv.appendChild(tryBtn);
 
     return schemeDiv;
@@ -41,10 +45,26 @@ async function showRandomColorSchemes() {
 
     container.innerHTML = "";
 
+    // Helper to handle "Try" button click
+    function handleTry(schemeBox, palette) {
+        applyPaletteToSite(palette);
+        if (currentActiveSchemeBox) {
+            currentActiveSchemeBox.classList.remove('active-scheme');
+        }
+        schemeBox.classList.add('active-scheme');
+        currentActiveSchemeBox = schemeBox;
+    }
+
     for (let i = 0; i < 3; i++) {
         const palette = await getRandomColorPalette(5);
-        const schemeDiv = createColorSchemeElement(palette);
+        const schemeDiv = createColorSchemeElement(palette, handleTry);
         container.appendChild(schemeDiv);
+
+        // Optionally, set the first as active on load:
+        if (i === 0) {
+            const schemeBox = schemeDiv.querySelector('.colorSchemeBox');
+            handleTry(schemeBox, palette);
+        }
     }
 }
 
