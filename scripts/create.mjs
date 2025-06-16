@@ -2,10 +2,21 @@ import { renderColorBar, renderEmojiBar } from "./dynamic-elements.mjs";
 import { getRandomColorPalette, getRandomEmojis } from "./api.mjs";
 import { saveInspiration } from "./data.mjs";
 
+// Apply the palette to the site (updates CSS variables)
+function applyPaletteToSite(palette) {
+    if (!palette || palette.length < 5) return;
+    document.documentElement.style.setProperty('--headerColor', `rgb(${palette[0].join(",")})`);
+    document.documentElement.style.setProperty('--footerColor', `rgb(${palette[1].join(",")})`);
+    document.documentElement.style.setProperty('--accent1', `rgb(${palette[2].join(",")})`);
+    document.documentElement.style.setProperty('--accent2', `rgb(${palette[3].join(",")})`);
+    document.documentElement.style.setProperty('--accent3', `rgb(${palette[4].join(",")})`);
+}
+
 // loads a random color palette and renders it
 async function loadColors(colorBar) {
     const palette = await getRandomColorPalette();
     renderColorBar(colorBar, palette);
+    applyPaletteToSite(palette); // <-- Update site colors
 }
 
 // loads random emoji palette and renders it
@@ -53,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const emojiReloadButton = document.getElementById("emojiReloadButton");
     const saveButton = document.querySelector(".saveButton");
 
+    // Initial Load
     loadColors(colorBar);
     loadEmojis(emojiBar);
 

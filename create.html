@@ -10,6 +10,7 @@
 
     <link rel="icon" href="public/images/favicon.ico">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/create.css">
     <script type="module" src="scripts/main.mjs"></script>
     <script type="module" src="scripts/create.mjs"></script>
 </head>
@@ -19,13 +20,17 @@
     <main>
         <h2>Create Your Own Inspiration</h2>
 
-        <div class="createColors">
-            <div class="colorBar"></div>
-            <button class="reloadButton" id="colorReloadButton">↻</button>
-        </div>
-        <div class="createEmojis">
-            <div class="emojiBar"></div>
-            <button class="reloadButton" id="emojiReloadButton">↻</button>
+        <div class="creatorBoxWrapper">
+            <div class="creatorBox active-scheme">
+                <div class="paletteGroup">
+                    <div class="colorBar"></div>
+                    <div class="emojiBar"></div>
+                </div>
+                <div class="refreshGroup">
+                    <button id="colorReloadButton">↻</button>
+                    <button id="emojiReloadButton">↻</button>
+                </div>
+            </div>
         </div>
 
         <button class="saveButton">SAVE</button>

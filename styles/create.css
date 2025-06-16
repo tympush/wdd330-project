@@ -1,0 +1,118 @@
+/* Center the heading */
+main h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 32px;
+}
+
+/* Center the main content box */
+.creatorBoxWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* The palette/emoji box */
+.creatorBox {
+    display: flex;
+    align-items: center;
+    background: #161616;
+    border: 2px solid var(--accent3, #222222);
+    border-radius: 12px;
+    padding: 32px 36px;
+    box-shadow: 0 0 8px 2px var(--accent1), 0 2px 8px rgba(0,0,0,0.03);
+    min-width: 340px;
+    max-width: 600px;
+    margin: 0 auto;
+    flex: 0 1 600px;
+    gap: 32px;
+}
+
+/* The palettes (color and emoji) stacked vertically */
+.paletteGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;   /* <-- Add this line */
+}
+
+/* Color bar styling */
+.colorBar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.colorBar div {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin-right: 8px;
+    border-radius: 8px;
+}
+
+/* Emoji bar styling */
+.emojiBar {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center; /* <-- Add this line for extra centering */
+}
+
+.emojiBar span {
+    font-size: 2.5rem;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+/* Refresh buttons stacked vertically, inside the box */
+.refreshGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-end;
+    margin-left: 24px;
+}
+
+.refreshGroup button {
+    color: #fff;
+    background-color: var(--accent1);
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 28px;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    width: 52px;
+}
+
+.refreshGroup button:hover {
+    background-color: var(--accent2);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Big, centered save button outside the box */
+.saveButton {
+    display: block;
+    margin: 60px auto 0 auto;
+    padding: 18px 40px;
+    width: 280px;
+    font-size: 38px;
+    border-radius: 10px;
+    background-color: var(--accent1);
+    color: #fff;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.saveButton:hover {
+    background-color: var(--accent2);
+    transform: translateY(-2px) scale(1.04);
+}
