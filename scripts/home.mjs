@@ -1,5 +1,5 @@
-import { getRandomColorPalette } from "./api.mjs";
-import { renderColorBar } from "./dynamic-elements.mjs";
+import { getRandomColorPalette, getRandomEmojis } from "./api.mjs";
+import { renderColorBar, renderEmojiShowcase } from "./dynamic-elements.mjs";
 
 async function showRandomColorSchemes() {
     const container = document.querySelector('.randomColorSchemes');
@@ -36,3 +36,14 @@ async function showRandomColorSchemes() {
 }
 
 document.addEventListener("DOMContentLoaded", showRandomColorSchemes);
+
+async function showEmojiShowcases() {
+    const emojiShowcases = document.querySelectorAll('.emojiShowcase');
+    const emojis = await getRandomEmojis(10);
+    emojiShowcases.forEach(container => renderEmojiShowcase(container, emojis));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    showRandomColorSchemes();
+    showEmojiShowcases();
+});

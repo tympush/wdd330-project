@@ -38,3 +38,17 @@ export function renderEmojiBar(emojiBar, emojis) {
         emojiBar.textContent = "Failed to load emojis.";
     }
 }
+
+export function renderEmojiShowcase(container, emojis) {
+    if (!container) return;
+    container.innerHTML = "";
+    emojis.forEach(emojiObj => {
+        const span = document.createElement("span");
+        span.innerHTML = emojiObj.htmlCode[0];
+        span.style.fontSize = "2.5rem";
+        span.style.display = "block"; // Stack vertically
+        span.style.margin = "8px 0";
+        span.title = emojiObj.name;
+        container.appendChild(span);
+    });
+}
