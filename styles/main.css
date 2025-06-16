@@ -45,6 +45,24 @@ header {
 
 footer {
     background-color: var(--footerColor);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+footer img {
+    margin-left: auto;
+    width: 150px;
+    height: auto;
+}
+
+footer > div {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
 }
 
 html, body {
