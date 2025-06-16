@@ -42,13 +42,30 @@ export function renderEmojiBar(emojiBar, emojis) {
 export function renderEmojiShowcase(container, emojis) {
     if (!container) return;
     container.innerHTML = "";
-    emojis.forEach(emojiObj => {
-        const span = document.createElement("span");
-        span.innerHTML = emojiObj.htmlCode[0];
-        span.style.fontSize = "2.5rem";
-        span.style.display = "block"; // Stack vertically
-        span.style.margin = "8px 0";
-        span.title = emojiObj.name;
-        container.appendChild(span);
+
+    // Create a wrapper for animation
+    const wrapper = document.createElement("div");
+    wrapper.className = "emojiScrollWrapper";
+
+    // Add emojis twice for seamless looping
+    for (let i = 0; i < 2; i++) {
+        emojis.forEach(emojiObj => {
+            const span = document.createElement("span");
+            span.innerHTML = emojiObj.htmlCode[0];
+            span.style.fontSize = "2.5rem";
+            span.style.display = "block";
+            span.style.margin = "8px 0";
+            span.title = emojiObj.name;
+            wrapper.appendChild(span);
+        });
+    }
+
+    container.appendChild(wrapper);
+
+    // Wait for DOM to update, then measure and set scroll distance
+    requestAnimationFrame(() => {
+        // Height of one set of emojis (half the wrapper)
+        const scrollDistance = wrapper.scrollHeight / 2;
+        wrapper.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
     });
 }

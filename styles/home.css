@@ -7,11 +7,56 @@ main {
     padding: 0px 30px 0px 30px;
 }
 
+
+
 .emojiShowcase {
+    position: relative;
+    overflow: hidden;
+    height: 700px;
+    background-color: var(--accent2);
+    width: 100%;
+}
+
+.emojiScrollWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: emojiScroll 6s linear infinite;
+    --scroll-distance: -350px; /* fallback */
 }
+
+@keyframes emojiScroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(var(--scroll-distance));
+    }
+}
+
+/* fade effect */
+.emojiShowcase::before,
+.emojiShowcase::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.emojiShowcase::before {
+    top: 0;
+    background: linear-gradient(to bottom, #040404 0%, rgba(4,4,4,0.85) 40%, rgba(4,4,4,0.5) 70%, transparent 100%);
+}
+
+.emojiShowcase::after {
+    bottom: 0;
+    background: linear-gradient(to top, #040404 0%, rgba(4,4,4,0.85) 40%, rgba(4,4,4,0.5) 70%, transparent 100%);
+}
+
+
 
 h2, p{
     text-align: center;
