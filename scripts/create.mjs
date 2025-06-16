@@ -45,7 +45,7 @@ function handleSave(colorBar, emojiBar) {
     alert(`Inspiration "${saveName}" saved!`);
 }
 
-// executes all the functions
+// main function that executes all the functions
 document.addEventListener("DOMContentLoaded", () => {
     const colorBar = document.querySelector(".colorBar");
     const emojiBar = document.querySelector(".emojiBar");
