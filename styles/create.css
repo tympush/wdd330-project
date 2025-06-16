@@ -96,7 +96,7 @@ main h2 {
 /* Big, centered save button outside the box */
 .saveButton {
     display: block;
-    margin: 60px auto 0 auto;
+    margin: 60px auto 120px auto;
     padding: 18px 40px;
     width: 280px;
     font-size: 38px;
