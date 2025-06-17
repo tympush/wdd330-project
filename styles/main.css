@@ -101,31 +101,6 @@ header div img{
     height: auto;
 }
 
-nav ul{
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a{
-    font-size: 24px;
-    text-decoration: none;
-    color: inherit;
-    padding: 8px 16px;
-    transition: color 0.2s;
-}
-
-nav ul li a:hover{
-    color: var(--accent3);
-}
-
-nav ul li a.active{
-    text-decoration: underline;
-    text-underline-offset: 6px;
-}
-
 
 
 main{
@@ -170,4 +145,68 @@ footer img{
     font-size: 40px;
     display: block;
     margin: 8px 0;
+}
+
+
+
+@media screen and (max-width: 1150px) {
+    #menu {
+        font-size:48px;
+        position:absolute;
+        right:10px;
+        top:20px;
+        z-index:10;
+    }
+    
+    #menu::before {
+        content:"☰";
+        position:absolute;
+        right:10px
+    }
+    
+    #menu.show::before {
+        content:"X"
+    }
+
+    nav {
+        text-align:center;
+        max-height:0;
+        overflow:hidden;
+    }
+    
+    nav a {
+        margin:30px;
+        display:block;
+    }
+    
+    nav.show {
+        max-height:300px;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    nav ul{
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    padding: 8px 16px;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover{
+    color: var(--accent3);
+}
+
+nav ul li a.active{
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
 }

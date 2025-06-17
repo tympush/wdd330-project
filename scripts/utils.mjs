@@ -57,3 +57,16 @@ export function setDateInFooter(){
 
     modified.innerHTML = `Last Update: ${yearModified}/${monthModified}/${dayModified}`;
 }
+
+export function setupHamburgerMenu() {
+    const hambutton = document.querySelector("#menu");
+    const mainnav = document.querySelector("nav");
+
+    if (hambutton && mainnav) {
+        hambutton.addEventListener("click", (e) => {
+            e.preventDefault();
+            mainnav.classList.toggle("show");
+            hambutton.classList.toggle("show");
+        });
+    }
+}
