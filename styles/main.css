@@ -39,6 +39,16 @@ h1, nav ul li a, button, footer{
     --accent3: #aaa;
 }
 
+*,
+*::before,
+*::after {
+    transition:
+        background-color 2s,
+        color 2s,
+        border-color 2s,
+        box-shadow 2s;
+}
+
 header {
     background-color: var(--headerColor);
 }
