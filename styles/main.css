@@ -164,7 +164,7 @@ footer img{
 
 
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 960px) {
     h1{
         display: none;
     }
@@ -226,7 +226,7 @@ footer img{
     }
 }
 
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 960px) {
     nav ul{
         display: flex;
         gap: 32px;
