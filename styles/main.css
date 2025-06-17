@@ -101,6 +101,10 @@ header div img{
     height: auto;
 }
 
+nav{
+    transition: background 0s;
+}
+
 nav ul{
     list-style: none;
 }
