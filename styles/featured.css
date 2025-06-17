@@ -51,7 +51,7 @@ h2, main p{
 
 .inspirationBox h3 {
     margin: 0 0 12px 0;
-    font-size: 1.5rem;
+    font-size: 28px;
     color: #fff;
 }
 
@@ -71,7 +71,7 @@ h2, main p{
     margin-bottom: 12px;
 }
 .emojiBar span {
-    font-size: 2.5rem;
+    font-size: 44px;
     margin-right: 12px;
     vertical-align: middle;
 }
@@ -96,7 +96,7 @@ h2, main p{
     border-radius: 6px;
     padding: 8px 18px;
     width: 75px;
-    font-size: 1rem;
+    font-size: 18px;
     font-family: 'Lexend', sans-serif;
     font-weight: 600;
     cursor: pointer;
