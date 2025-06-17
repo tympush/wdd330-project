@@ -133,14 +133,16 @@ footer img{
 /* color bar */
 .colorBar div {
     display: inline-block;
-    margin-right: 8px;
+    margin-right: 4px;
+    margin-left: 4px;
     border-radius: 8px;
 }
 
 /* emoji bar */
 .emojiBar span {
     font-size: 40px;
-    margin-right: 12px;
+    margin-right: 6px;
+    margin-left: 6px;
     vertical-align: middle;
 }
 
