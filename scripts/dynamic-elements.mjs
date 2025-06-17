@@ -54,8 +54,14 @@ export function renderEmojiShowcase(container, emojis) {
 
     // Wait for DOM to update, then measure and set scroll distance
     requestAnimationFrame(() => {
-        // Height of one set of emojis (half the wrapper)
-        const scrollDistance = wrapper.scrollHeight / 2;
-        wrapper.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
+        if (window.innerWidth <= 960) {
+            // Horizontal: width of one set of emojis
+            const scrollDistance = wrapper.scrollWidth / 2;
+            wrapper.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
+        } else {
+            // Vertical: height of one set of emojis
+            const scrollDistance = wrapper.scrollHeight / 2;
+            wrapper.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
+        }
     });
 }

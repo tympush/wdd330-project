@@ -83,11 +83,6 @@ async function showEmojiShowcases() {
         } else {
             container.classList.add('scroll-down');
         }
-        //also update the wrapper's animation name
-        const wrapper = container.querySelector('.emojiScrollWrapper');
-        if (wrapper) {
-            wrapper.style.animationName = (i === 0) ? 'emojiScrollUp' : 'emojiScrollDown';
-        }
     }
 }
 

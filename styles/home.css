@@ -90,20 +90,45 @@ button:hover {
 
 
 @media screen and (max-width: 960px) {
-    main {
-        display: grid;
-        grid-template-rows: 120px 1fr 120px;
+    .emojiShowcase {
+        position: relative;
+        overflow: hidden;
+        height: 100px;
+        min-height: 80px;
+        width: 100vw;
+        max-width: 100vw;
+        background-color: var(--accent2);
+        margin: 0;
+        padding: 0;
     }
 
     .emojiScrollWrapper {
         display: flex;
         flex-direction: row;
-        animation: emojiScrollRight 6s linear infinite;
+        align-items: center;
+        height: 100%;
+        width: max-content;
         --scroll-distance: -350px; /* fallback */
     }
 
+    /* Always apply animation, but let animation-name be set by JS */
+    .emojiShowcase .emojiScrollWrapper {
+        animation-duration: 6s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    .scroll-up .emojiScrollWrapper {
+        animation-name: emojiScrollRight;
+    }
     .scroll-down .emojiScrollWrapper {
         animation-name: emojiScrollLeft;
+    }
+
+    .emojiScrollWrapper span {
+        font-size: 2.5rem;
+        margin: 0 16px;
+        display: inline-block;
     }
 
     @keyframes emojiScrollRight {
