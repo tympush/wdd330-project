@@ -129,8 +129,6 @@ footer img{
     display: inline-block;
     margin-right: 8px;
     border-radius: 8px;
-    /* Optionally add a border or box-shadow for better visibility */
-    /* border: 2px solid #222; */
 }
 
 /* emoji bar */
@@ -150,6 +148,10 @@ footer img{
 
 
 @media screen and (max-width: 1150px) {
+    h1{
+        display: none;
+    }
+
     #menu {
         font-size:48px;
         position:absolute;
