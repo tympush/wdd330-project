@@ -90,6 +90,12 @@ button:hover {
 
 
 @media screen and (max-width: 960px) {
+    /*overrides the rule from main, just for home page, due to the emoji showcases*/
+    main{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
     .emojiShowcase {
         position: relative;
         overflow: hidden;
@@ -111,7 +117,6 @@ button:hover {
         --scroll-distance: -350px; /* fallback */
     }
 
-    /* Always apply animation, but let animation-name be set by JS */
     .emojiShowcase .emojiScrollWrapper {
         animation-duration: 6s;
         animation-timing-function: linear;
