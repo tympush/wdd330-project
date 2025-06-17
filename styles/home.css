@@ -1,75 +1,6 @@
-main {
-    display: grid;
-    grid-template-columns: 120px 1fr 120px;
-}
-
 #middleDiv{
     padding: 0px 60px 0px 60px;
 }
-
-
-
-.emojiShowcase {
-    position: relative;
-    overflow: hidden;
-    height: 700px;
-    background-color: var(--accent2);
-    width: 100%;
-}
-
-.emojiScrollWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: emojiScrollUp 6s linear infinite;
-    --scroll-distance: -350px; /* fallback */
-}
-
-.scroll-down .emojiScrollWrapper {
-    animation-name: emojiScrollDown;
-}
-
-@keyframes emojiScrollUp {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(var(--scroll-distance));
-    }
-}
-
-@keyframes emojiScrollDown {
-    0% {
-        transform: translateY(var(--scroll-distance));
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* fade effect */
-.emojiShowcase::before,
-.emojiShowcase::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.emojiShowcase::before {
-    top: 0;
-    background: linear-gradient(to bottom, #080808 0%, transparent 100%);
-}
-
-.emojiShowcase::after {
-    bottom: 0;
-    background: linear-gradient(to top, #080808 0%, transparent 100%);
-}
-
-
 
 h2, main p{
     text-align: center;
@@ -150,4 +81,112 @@ button:hover {
     font-family: inherit;
     font-weight: inherit;
     display: block;
+}
+
+
+.emojiShowcase {
+    background-color: var(--accent2);
+}
+
+
+@media screen and (max-width: 960px) {
+    main {
+        display: grid;
+        grid-template-rows: 120px 1fr 120px;
+    }
+
+    .emojiScrollWrapper {
+        display: flex;
+        flex-direction: row;
+        animation: emojiScrollRight 6s linear infinite;
+        --scroll-distance: -350px; /* fallback */
+    }
+
+    .scroll-down .emojiScrollWrapper {
+        animation-name: emojiScrollLeft;
+    }
+
+    @keyframes emojiScrollRight {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(var(--scroll-distance));
+        }
+    }
+
+    @keyframes emojiScrollLeft {
+        0% {
+            transform: translateX(var(--scroll-distance));
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+}
+
+@media screen and (min-width: 960px) {
+    main {
+        display: grid;
+        grid-template-columns: 120px 1fr 120px;
+    }
+
+    .emojiShowcase {
+        position: relative;
+        overflow: hidden;
+        height: 700px;
+        width: 100%;
+    }
+
+    .emojiScrollWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: emojiScrollUp 6s linear infinite;
+        --scroll-distance: -350px; /* fallback */
+    }
+
+    .scroll-down .emojiScrollWrapper {
+        animation-name: emojiScrollDown;
+    }
+
+    @keyframes emojiScrollUp {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(var(--scroll-distance));
+        }
+    }
+
+    @keyframes emojiScrollDown {
+        0% {
+            transform: translateY(var(--scroll-distance));
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* fade effect */
+    .emojiShowcase::before,
+    .emojiShowcase::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 250px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .emojiShowcase::before {
+        top: 0;
+        background: linear-gradient(to bottom, #080808 0%, transparent 100%);
+    }
+
+    .emojiShowcase::after {
+        bottom: 0;
+        background: linear-gradient(to top, #080808 0%, transparent 100%);
+    }
 }
