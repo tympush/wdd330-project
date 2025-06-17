@@ -101,6 +101,19 @@ header div img{
     height: auto;
 }
 
+nav ul{
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+nav ul li a.active{
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
 
 
 main{
@@ -171,44 +184,60 @@ footer img{
     }
 
     nav {
-        text-align:center;
-        max-height:0;
-        overflow:hidden;
+        position: absolute;
+        top: 140px; /* Adjust this value to be just below your header/logo area */
+        left: 0;
+        width: 100vw;
+        background: #161616;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        z-index: 100;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
     
-    nav a {
-        margin:30px;
-        display:block;
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
     }
-    
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 24px 0;
+        font-size: 24px;
+        border-bottom: 1px solid #222;
+        width: 100%;
+        color: #fff;
+    }
+
     nav.show {
-        max-height:300px;
+        max-height: 400px;
     }
 }
 
 @media screen and (min-width: 1150px) {
     nav ul{
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        display: flex;
+        gap: 32px;
+        margin: 0;
+        padding: 0;
+    }
 
-nav ul li a{
-    font-size: 24px;
-    text-decoration: none;
-    color: inherit;
-    padding: 8px 16px;
-    transition: color 0.2s;
-}
+    nav ul li a{
+        font-size: 24px;
+        color: inherit;
+        padding: 8px 16px;
+        transition: color 0.2s;
+    }
 
-nav ul li a:hover{
-    color: var(--accent3);
-}
-
-nav ul li a.active{
-    text-decoration: underline;
-    text-underline-offset: 6px;
-}
+    nav ul li a:hover{
+        color: var(--accent3);
+    }
 }
