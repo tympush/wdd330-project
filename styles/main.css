@@ -6,22 +6,13 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
-h2{
-    font-size: 32px;
-}
-
-footer p{
-    font-size: 20px;
-}
-
 p, li, a, button, .inspiration-author {
     font-family: 'Lexend', sans-serif;
     font-weight: 400;
-    font-size: 18px;
     color: white;
 }
 
-h1, nav ul li a, button, footer{
+h1, nav ul li a, button, footer, #menu{
     text-shadow:
         -1px -1px 0 #222222,  
         1px -1px 0 #222222,
@@ -141,8 +132,6 @@ footer img{
 
 /* color bar */
 .colorBar div {
-    width: 80px;
-    height: 80px;
     display: inline-block;
     margin-right: 8px;
     border-radius: 8px;
@@ -224,6 +213,23 @@ footer img{
     nav.show {
         max-height: 400px;
     }
+
+    h2{
+        font-size: 22px;
+    }
+
+    footer p{
+        font-size: 16px;
+    }
+
+    p, li, a, button, .inspiration-author {
+        font-size: 16px;
+    }
+
+    .colorBar div {
+        width: 45px;
+        height: 45px;
+    }
 }
 
 @media screen and (min-width: 960px) {
@@ -243,5 +249,22 @@ footer img{
 
     nav ul li a:hover{
         color: var(--accent3);
+    }
+
+    h2{
+        font-size: 32px;
+    }
+
+    footer p{
+        font-size: 20px;
+    }
+
+    p, li, a, button, .inspiration-author {
+        font-size: 18px;
+    }
+
+    .colorBar div {
+        width: 80px;
+        height: 80px;
     }
 }
