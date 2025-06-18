@@ -137,3 +137,13 @@ main h2 {
     border-radius: 50%;
     margin-left: 8px;
 }
+
+
+
+@media screen and (max-width: 960px) {
+
+}
+
+@media screen and (min-width: 960px) {
+    
+}
