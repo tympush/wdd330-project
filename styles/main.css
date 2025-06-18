@@ -54,7 +54,6 @@ footer {
 
 footer img {
     margin-left: auto;
-    width: 150px;
     height: auto;
 }
 
@@ -88,7 +87,6 @@ header div{
 }
 
 header div img{
-    width: 120px;
     height: auto;
 }
 
@@ -124,7 +122,6 @@ footer{
 
 footer img{
     margin-left: auto;
-    width: 150px;
     height: auto;
 }
 
@@ -180,7 +177,7 @@ footer img{
 
     nav {
         position: absolute;
-        top: 140px; /* Adjust this value to be just below your header/logo area */
+        top: 115px; /* Adjust this value to be just below your header/logo area */
         left: 0;
         width: 100vw;
         background: #161616;
@@ -232,6 +229,14 @@ footer img{
         width: 45px;
         height: 45px;
     }
+
+    header div img{
+        width: 90px;
+    }
+
+    footer img {
+        width: 120px;
+    }
 }
 
 @media screen and (min-width: 960px) {
@@ -268,5 +273,13 @@ footer img{
     .colorBar div {
         width: 80px;
         height: 80px;
+    }
+
+    header div img{
+        width: 120px;
+    }
+
+    footer img {
+        width: 150px;
     }
 }
