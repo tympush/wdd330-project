@@ -72,3 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
     emojiReloadButton.addEventListener("click", () => loadEmojis(emojiBar));
     saveButton.addEventListener("click", () => handleSave(colorBar, emojiBar));
 });
+
+// adds text to reload buttons in mobile view 
+function updateReloadButtonText() {
+    const colorBtn = document.getElementById('colorReloadButton');
+    const emojiBtn = document.getElementById('emojiReloadButton');
+    if (window.innerWidth <= 960) {
+        if (colorBtn) colorBtn.textContent = "↻ Color";
+        if (emojiBtn) emojiBtn.textContent = "↻ Emoji";
+    } else {
+        if (colorBtn) colorBtn.textContent = "↻";
+        if (emojiBtn) emojiBtn.textContent = "↻";
+    }
+}
+
+window.addEventListener('resize', updateReloadButtonText);
+window.addEventListener('DOMContentLoaded', updateReloadButtonText);
